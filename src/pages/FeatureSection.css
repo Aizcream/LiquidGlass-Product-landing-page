@@ -1,0 +1,157 @@
+.feature-section {
+  background-color: #f4f3f0;
+  width: 100%;
+  min-height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 5rem 6rem 5.5rem;
+  box-sizing: border-box;
+  font-family: var(--font-geist, "Geist", sans-serif);
+}
+
+/* ── Header ── */
+.feature-header {
+  text-align: center;
+  max-width: 660px;
+}
+
+.feature-eyebrow {
+  margin: 0;
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #2b2b2b;
+  letter-spacing: -0.02em;
+}
+
+.feature-eyebrow strong {
+  font-weight: 800;
+}
+
+.feature-title {
+  color: #1a1a1a;
+  font-family: "Instrument Serif", serif;
+  font-size: clamp(2.4rem, 5vw, 3.5rem);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+  margin: 0 0 1rem;
+}
+
+.feature-subtitle {
+  color: #403933;
+  font-size: 1.2rem;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.feature-br {
+  display: block;
+}
+
+/* ── Body ── */
+.feature-body {
+  display: flex;
+  align-items: flex-start;
+  gap: 4rem;
+  width: 100%;
+  max-width: 1200px;
+}
+
+/* ── Diagram ── */
+.feature-diagram-wrap {
+  flex: 0 0 auto;
+  width: 44%;
+  background: #eceae4;
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  box-sizing: border-box;
+  box-shadow: 0 4px 32px rgba(0, 0, 0, 0.06);
+}
+
+.feature-diagram-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+/* ── Feature grid ── */
+.feature-grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem 2rem;
+  align-self: center;
+}
+
+.feature-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.feature-icon {
+  width: 2rem;
+  height: 2rem;
+  object-fit: contain;
+  margin-bottom: 0.25rem;
+  opacity: 0.85;
+}
+
+.feature-card-title {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  letter-spacing: -0.03em;
+}
+
+.feature-card-desc {
+  text-align: center;
+  margin: 0;
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.55;
+  letter-spacing: -0.01em;
+  max-width: 220px;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .feature-section {
+    padding: 4rem 2rem 4.5rem;
+  }
+
+  .feature-body {
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+
+  .feature-diagram-wrap {
+    width: 100%;
+  }
+
+  .feature-grid {
+    width: 100%;
+  }
+}
+
+@media (max-width: 500px) {
+  .feature-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .feature-card-desc {
+    max-width: 100%;
+  }
+}

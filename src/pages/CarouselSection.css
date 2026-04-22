@@ -1,0 +1,341 @@
+.carousel-section {
+  background-color: #f4f3f0;
+  width: 100%;
+  min-height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 4.5rem 5rem 3.5rem;
+  box-sizing: border-box;
+  font-family: var(--font-geist, "Geist", sans-serif);
+  overflow: hidden;
+}
+
+/* ── Header — desktop: top row + centered title ── */
+.carousel-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 2.75rem;
+}
+
+/* Desktop top row: eyebrow left, arrows right */
+.carousel-header-top {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.carousel-header-left {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.carousel-header-center {
+  /* Title stays centered below the top row */
+  text-align: center;
+}
+
+.carousel-dot {
+  color: #888;
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+.carousel-eyebrow {
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: #666;
+  letter-spacing: -0.01em;
+}
+
+.carousel-title {
+  margin: 0;
+  font-size: clamp(1.6rem, 3vw, 2.5rem);
+  font-weight: 400;
+  color: #1a1a1a;
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+/* ── Navigation buttons — pushed to far right ── */
+.carousel-controls {
+  display: flex;
+  gap: 0.6rem;
+  flex-shrink: 0;
+  justify-self: end;
+}
+
+.carousel-btn {
+  cursor: pointer;
+  background: transparent;
+  border: 1.5px solid #c8c5be;
+  border-radius: 50%;
+  width: 2.6rem;
+  height: 2.6rem;
+  font-size: 1rem;
+  color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+  line-height: 1;
+}
+
+.carousel-btn:hover {
+  background: #1a1a1a;
+  color: #fff;
+  border-color: #1a1a1a;
+  transform: scale(1.08);
+}
+
+.carousel-btn:active {
+  transform: scale(0.95);
+}
+
+/* ─────────────────────────────────────────
+   TRACK  — all cards stacked at center,
+   Framer Motion moves them via x transform
+───────────────────────────────────────── */
+.carousel-track {
+  position: relative;
+  width: 100%;
+  /* height = card aspect ratio 3:4 @ ~360px width → ~480px */
+  height: 480px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: grab;
+  user-select: none;
+}
+
+.carousel-track:active {
+  cursor: grabbing;
+}
+
+/* Every card is absolutely centered, Framer adds x offset */
+.carousel-card {
+  position: absolute;
+  /* 32% of a ~1150px max-width container */
+  width: 32%;
+  max-width: 370px;
+  will-change: transform, opacity, filter;
+}
+
+.carousel-card-inner {
+  border-radius: 18px;
+  overflow: hidden;
+  background: #e0ddd6;
+  box-shadow: 0 6px 28px rgba(0, 0, 0, 0.1);
+}
+
+.carousel-img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  display: block;
+  pointer-events: none;
+}
+
+/* ── Info row below track ── */
+.carousel-info-row {
+  margin-top: 1.25rem;
+  height: 4rem; /* keeps layout stable during AnimatePresence */
+  display: flex;
+  justify-content: center;
+}
+
+.carousel-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.45rem;
+  text-align: center;
+}
+
+.carousel-card-title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #1a1a1a;
+  letter-spacing: -0.02em;
+}
+
+.carousel-tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.35rem;
+}
+
+.carousel-tag {
+  font-size: 0.75rem;
+  color: #555;
+  border: 1px solid #c8c5be;
+  border-radius: 999px;
+  padding: 0.2rem 0.65rem;
+  letter-spacing: -0.01em;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+/* ── Dot indicators ── */
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1.75rem;
+}
+
+.carousel-dot-btn {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  border: none;
+  background: #c8c5be;
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.carousel-dot-btn.active {
+  background: #1a1a1a;
+  transform: scale(1.5);
+}
+
+/* ── Mobile: hidden on desktop ── */
+.carousel-mobile {
+  display: none;
+}
+
+/* ══════════════════════════════════════
+   MOBILE RESPONSIVE
+   ══════════════════════════════════════ */
+@media (max-width: 760px) {
+  .carousel-section {
+    padding: 3rem 1.25rem 3rem;
+    min-height: auto;
+    justify-content: flex-start;
+    gap: 2rem;
+  }
+
+  /* ── Header: stack vertically on mobile ── */
+  .carousel-header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+    margin-bottom: 0;
+  }
+
+  /* Top row: eyebrow + arrows on same line */
+  .carousel-header-left {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    order: 0;
+  }
+
+  /* Title full width below */
+  .carousel-header-center {
+    order: 1;
+    justify-self: unset;
+    width: 100%;
+  }
+
+  .carousel-title {
+    font-size: 1.75rem;
+    letter-spacing: -0.05em;
+    line-height: 1.1;
+  }
+
+  /* Arrows: right side of eyebrow row */
+  .carousel-controls {
+    justify-self: unset;
+    margin-left: auto;
+    order: 0;
+    gap: 0.45rem;
+  }
+
+  /* Eyebrow + controls on same flex row */
+  .carousel-header::before {
+    content: "";
+  }
+
+  /* Wrap left + controls together */
+  .carousel-header-top {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .carousel-btn {
+    width: 2.1rem;
+    height: 2.1rem;
+    font-size: 0.85rem;
+  }
+
+  /* ── Hide desktop track on mobile ── */
+  .carousel-track,
+  .carousel-info-row {
+    display: none;
+  }
+
+  /* ── Show mobile carousel ── */
+  .carousel-mobile {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .carousel-mobile-card {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    cursor: grab;
+  }
+
+  .carousel-mobile-card:active {
+    cursor: grabbing;
+  }
+
+  .carousel-mobile-card .carousel-img {
+    border-radius: 20px;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.13);
+    aspect-ratio: 4 / 3;
+    width: 100%;
+  }
+
+  .carousel-mobile-card .carousel-info {
+    align-items: flex-start;
+    text-align: left;
+    padding: 1rem 0.25rem 0;
+  }
+
+  .carousel-mobile-card .carousel-card-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: -0.03em;
+  }
+
+  .carousel-mobile-card .carousel-tags {
+    justify-content: flex-start;
+    margin-top: 0.35rem;
+  }
+
+  .carousel-mobile-card .carousel-tag {
+    font-size: 0.78rem;
+    padding: 0.28rem 0.75rem;
+  }
+
+  /* Dots closer to card */
+  .carousel-dots {
+    margin-top: 1.25rem;
+  }
+}
+

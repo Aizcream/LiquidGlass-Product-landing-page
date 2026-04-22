@@ -1,0 +1,102 @@
+@import url("https://fonts.googleapis.com/css2?family=Geist:ital,wght@0,300;0,400;0,500&display=swap");
+
+body {
+  margin: 0;
+  line-height: normal;
+}
+:root {
+  /* Common Style Variables */
+
+  /* Color */
+  --color-darkgray: rgba(153, 153, 153, 0.01);
+  --color-darkseagreen: rgba(183, 193, 156, 0.2);
+  --color-gainsboro: rgba(217, 217, 217, 0.02);
+  --color-gray: #2b2b2b;
+  --color-silver: rgba(200, 200, 200, 0.02);
+  --color-white: #fff;
+
+  /* Gap */
+  --gap-0: 0rem;
+  --gap-2: 0.125rem;
+  --gap-8: 0.5rem;
+  --gap-22: 1.375rem;
+  --gap-24: 1.5rem;
+  --gap-48: 3rem;
+
+  /* Padding */
+  --padding-0: 0rem;
+  --padding-2: 0.125rem;
+  --padding-3: 0.187rem;
+  --padding-4: 0.25rem;
+  --padding-8: 0.5rem;
+  --padding-11: 0.687rem;
+  --padding-12: 0.75rem;
+  --padding-14: 0.875rem;
+  --padding-16: 1rem;
+  --padding-18: 1.125rem;
+  --padding-20: 1.25rem;
+  --padding-21: 1.312rem;
+  --padding-22: 1.375rem;
+
+  /* BorderRadius */
+  --br-38: 38px;
+
+  /* Font */
+  --font-geist: Geist;
+
+  /* FontSize */
+  --fs-16: 1rem;
+  --fs-20: 1.25rem;
+  --fs-80: 5rem;
+
+  /* Shadows */
+  --shadow-drop: 0px 4px 22.9px 10px rgba(0, 0, 0, 0.09);
+  --shadow-drop-1: 0px 4px 4px rgba(0, 0, 0, 0.1);
+  --shadow-inner: 0px 0px 199.8px rgba(0, 0, 0, 0.52) inset;
+  --shadow-inner-1:
+    0px -1px 0px rgba(255, 255, 255, 0.28) inset,
+    0px 1px 1.1px rgba(255, 255, 255, 0.51) inset,
+    0px 4px 4px rgba(255, 255, 255, 0.25) inset,
+    0px 4px 8.1px rgba(0, 0, 0, 0.27);
+  --shadow-inner-2:
+    0px 4px 4px rgba(255, 255, 255, 0.25) inset,
+    0px 4px 8.1px rgba(0, 0, 0, 0.27);
+  --shadow-inner-3:
+    1px 1px 1.5px rgba(255, 255, 255, 0.82) inset,
+    0px 2px 4px rgba(0, 0, 0, 0.25);
+  --shadow-inner-4:
+    1px 1px 1.5px rgba(255, 255, 255, 0.83) inset,
+    0px 1px 4px rgba(0, 0, 0, 0.25);
+  --text-shadow-1: 0px 1px 4px rgba(0, 0, 0, 0.27);
+  --text-shadow-2: 0px 1px 2.3px rgba(0, 0, 0, 0.25);
+  --text-shadow-3: 0px 2px 4px rgba(0, 0, 0, 0.25);
+  --text-shadow-4: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+  /* Gradients */
+  --gradient-1: linear-gradient(
+    -22.47deg,
+    rgba(255, 255, 255, 0.28),
+    rgba(0, 0, 0, 0.28)
+  );
+  --gradient-2: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0),
+    rgba(12, 12, 12, 0.25)
+  );
+  --gradient-3: linear-gradient(127.42deg, #afbc6d, #505632);
+
+  /* WidthHeights */
+  --height-16: 1rem;
+  --height-20: 1.25rem;
+  --height-24: 1.5rem;
+  --height-27_3: 1.706rem;
+  --width-16: 1rem;
+  --width-20: 1.25rem;
+  --width-24: 1.5rem;
+
+  /* LetterSpacings */
+  --ls--0_05: -0.05;
+
+  --left-0: 0rem;
+  --top-0: 0rem;
+}
