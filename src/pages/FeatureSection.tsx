@@ -1,17 +1,17 @@
 import { FunctionComponent } from "react";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import "./FeatureSection.css";
 
-const fadeUp = {
+const fadeUp: Variants = {
   hidden: { opacity: 0, y: 32 },
   visible: (delay = 0) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.7, delay, ease: [0.22, 1, 0.36, 1] },
+    transition: { duration: 0.7, delay, ease: [0.22, 1, 0.36, 1] as [number,number,number,number] },
   }),
 };
 
-const blurIn = {
+const blurIn: Variants = {
   hidden: { opacity: 0, filter: "blur(8px)" },
   visible: (delay = 0) => ({
     opacity: 1,

@@ -11,6 +11,8 @@
   display: flex;
   align-items: stretch;
   font-family: var(--font-geist, "Geist", sans-serif);
+  transform-origin: top center;
+  will-change: transform;
 }
 
 /* ── Full-bleed background image ── */

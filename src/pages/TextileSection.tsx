@@ -1,18 +1,18 @@
 import { FunctionComponent } from "react";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import "./TextileSection.css";
 
-const fadeUp = (delay = 0) => ({
+const fadeUp = (delay = 0): Variants => ({
   hidden: { opacity: 0, y: 30 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.75, delay, ease: [0.22, 1, 0.36, 1] },
+    transition: { duration: 0.75, delay, ease: [0.22, 1, 0.36, 1] as [number,number,number,number] },
   },
 });
 
-const blurIn = (delay = 0) => ({
+const blurIn = (delay = 0): Variants => ({
   hidden: { opacity: 0, filter: "blur(10px)" },
   visible: {
     opacity: 1,

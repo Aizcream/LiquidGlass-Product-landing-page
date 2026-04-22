@@ -1,5 +1,5 @@
 import { FunctionComponent, useRef, useState, useCallback, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, TargetAndTransition } from "framer-motion";
 import "./CarouselSection.css";
 
 /* ─── Data ─── */
@@ -46,10 +46,10 @@ const SIDE_X = 395;
 /* ─── Per-card animate variant driven by offset ─── */
 type Variant = "center" | "left" | "right" | "hiddenLeft" | "hiddenRight";
 
-const EASE = [0.25, 0.46, 0.45, 0.94] as const;
+const EASE: [number,number,number,number] = [0.25, 0.46, 0.45, 0.94];
 const DURATION = 0.58;
 
-const cardVariants: Record<Variant, object> = {
+const cardVariants: Record<Variant, TargetAndTransition> = {
   center: {
     x: 0,
     scale: 1,

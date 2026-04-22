@@ -1,19 +1,22 @@
-import { FunctionComponent } from "react";
-import { motion } from "framer-motion";
+import { FunctionComponent, useRef } from "react";
+import { motion, useScroll, useTransform, Variants } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import "./HeroSection.css";
 
 /* ─── Animation variants ─── */
-const bgVariants = {
+const bgVariants: Variants = {
   initial: { scale: 1.18, opacity: 0 },
   animate: {
     scale: 1,
     opacity: 1,
-    transition: { duration: 1.8, ease: [0.25, 0.46, 0.45, 0.94] },
+    transition: {
+      duration: 1.8,
+      ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number],
+    },
   },
 };
 
-const navVariants = {
+const navVariants: Variants = {
   initial: { opacity: 0 },
   animate: {
     opacity: 1,
@@ -21,11 +24,11 @@ const navVariants = {
   },
 };
 
-const titleContainerVariants = {
+const titleContainerVariants: Variants = {
   animate: { transition: { staggerChildren: 0.14, delayChildren: 0.9 } },
 };
 
-const wordVariants = {
+const wordVariants: Variants = {
   initial: { opacity: 0, filter: "blur(12px)" },
   animate: {
     opacity: 1,
@@ -34,7 +37,7 @@ const wordVariants = {
   },
 };
 
-const subtitleVariants = {
+const subtitleVariants: Variants = {
   initial: { opacity: 0, filter: "blur(6px)" },
   animate: {
     opacity: 1,
@@ -43,7 +46,7 @@ const subtitleVariants = {
   },
 };
 
-const badgeVariants = {
+const badgeVariants: Variants = {
   initial: { opacity: 0, y: 16 },
   animate: (d: number) => ({
     opacity: 1,
@@ -52,12 +55,16 @@ const badgeVariants = {
   }),
 };
 
-const btnVariants = {
+const btnVariants: Variants = {
   initial: { opacity: 0, y: 28 },
   animate: (d: number) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.65, delay: d, ease: [0.22, 1, 0.36, 1] },
+    transition: {
+      duration: 0.65,
+      delay: d,
+      ease: [0.22, 1, 0.36, 1] as [number, number, number, number],
+    },
   }),
 };
 
@@ -79,9 +86,13 @@ const AnimatedTitle = ({ text }: { text: string }) => (
 /* ─── Component ─── */
 const HeroSection: FunctionComponent = () => {
   const navigate = useNavigate();
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollY } = useScroll();
+  // Scale from 1 → 0.82 as user scrolls the hero height
+  const scale = useTransform(scrollY, [0, 600], [1, 0.9]);
 
   return (
-    <section className="hero">
+    <motion.section className="hero" ref={sectionRef} style={{ scale }}>
       {/* Full‑bleed background */}
       <motion.img
         className="hero-bg"
@@ -122,7 +133,11 @@ const HeroSection: FunctionComponent = () => {
               initial="initial"
               animate="animate"
             >
-              <img src="/Warranty-Icon.svg" alt="" className="hero-badge-icon" />
+              <img
+                src="/Warranty-Icon.svg"
+                alt=""
+                className="hero-badge-icon"
+              />
               <span>Garantía de 3 años</span>
             </motion.div>
           </div>
@@ -162,7 +177,7 @@ const HeroSection: FunctionComponent = () => {
               href="https://calendly.com/lafab-info"
               target="_blank"
               rel="noreferrer"
-              style={{ textDecoration: 'none' }}
+              style={{ textDecoration: "none" }}
               custom={1.65}
               variants={btnVariants}
               initial="initial"
@@ -176,7 +191,7 @@ const HeroSection: FunctionComponent = () => {
           </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

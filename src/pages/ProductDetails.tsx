@@ -1,14 +1,14 @@
 import { FunctionComponent, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, Variants } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";
 import FooterSection from "./FooterSection";
 import "./ProductDetails.css";
 
-const titleContainerVariants = {
+const titleContainerVariants: Variants = {
   animate: { transition: { staggerChildren: 0.14, delayChildren: 0.2 } },
 };
 
-const wordVariants = {
+const wordVariants: Variants = {
   initial: { opacity: 0, filter: "blur(12px)" },
   animate: {
     opacity: 1,
@@ -88,11 +88,11 @@ const ProductDetails: FunctionComponent = () => {
   };
 
   // Scroll-reveal variant
-  const slideUp = {
+  const slideUp: Variants = {
     hidden: { opacity: 0, y: 40 },
     visible: (i: number = 0) => ({
       opacity: 1, y: 0,
-      transition: { duration: 0.65, delay: i * 0.12, ease: [0.22, 1, 0.36, 1] }
+      transition: { duration: 0.65, delay: i * 0.12, ease: [0.22, 1, 0.36, 1] as [number,number,number,number] }
     })
   };
 
